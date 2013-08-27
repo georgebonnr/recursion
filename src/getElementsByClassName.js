@@ -5,5 +5,12 @@
 
 // But in stead we're going to implement it from scratch:
 var getElementsByClassName = function (className) {
-  // your code here
+    function walkTheDOM (node) {
+        nextNode = node.firstChild;
+        while (nextNode) {
+            walkTheDOM(nextNode);
+            nextNode = nextNode.nextSibling;
+        }
+    }
+    walkTheDOM(document.body);
 };

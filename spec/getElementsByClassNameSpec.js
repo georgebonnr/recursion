@@ -22,7 +22,7 @@ describe("getElementsByClassName", function(){
 
       expect(resultNodes).toEqual(expectedNodes);
 
-      $rootElement.remove();
+      // $rootElement.remove();
     });
   });
 
