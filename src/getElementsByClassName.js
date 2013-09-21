@@ -5,13 +5,19 @@
 
 // But in stead we're going to implement it from scratch:
 var getElementsByClassName = function (className) {
-    function walkTheDOM (node) {
-        debugger;
-        var node = node.firstChild;
-        while (node) {
-            walkTheDOM(node);
-            node = node.nextSibling;
-        }
+  var returnArr = [];
+  var returnMatches = function (node) {
+    if (_.contains(node.classList, className)) {
+      returnArr.push(node)
+    };
+    var node = node.firstChild;
+    while (node) {
+      returnMatches(node);
+      node = node.nextSibling;
     }
-    walkTheDOM(document.body);
+  }
+
+  returnMatches(document.body)
+
+  return returnArr;
 };
